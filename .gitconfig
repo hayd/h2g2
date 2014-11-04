@@ -1,0 +1,26 @@
+[color]
+ui = true
+
+[alias]
+r = rebase
+f = fetch
+ff = merge --ff-only
+co = checkout
+c = commit
+a = add
+d = diff
+p = push
+pull = pull --rebase # don't use pull
+# actually this doesn't work see
+# http://stackoverflow.com/a/22944397/1240268
+s = status
+h = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+po = push origin
+rum = rebase upstream/master
+fu = fetch upstream
+ffum = merge --ff-only upstream/master
+dum = !git diff $(git merge-base upstream/master HEAD) 
+
+[remote "upstream"]
+fetch = +refs/heads/*:refs/remotes/upstream/*
+fetch = +refs/pull/*/head:refs/remotes/upstream/pr/*
